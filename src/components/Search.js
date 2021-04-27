@@ -4,7 +4,7 @@ import axios from 'axios';
 const Search = () => {
   // hook instead of class component
   const [term, setTerm] = useState('programming');
-  const [results, setResults] = useState();
+  const [results, setResults] = useState([]);
 
 
   useEffect(() => {
@@ -19,12 +19,25 @@ const Search = () => {
         },
       });
 
-      setResults(data)
+      setResults(data.query.search)
     };
 
 
     search();
   }, [term]);
+
+  const renderedResults = results.map((result) => {
+    return (
+      <div className="item">
+        <div className="content">
+          <div className="header">
+            {result.title}
+          </div>
+          {result.snippet}
+        </div>
+      </div>
+    );
+  })
 
   return (
     <div>
@@ -37,6 +50,9 @@ const Search = () => {
             className="input"
           />
         </div>
+      </div>
+      <div className="ui celled list">
+        {renderedResults}
       </div>
     </div>
   );
