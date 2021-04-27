@@ -21,5 +21,5 @@ export default () => {
     <div>
       <Accordion items={items} />
     </div>
-    );
+  );
 };
