@@ -32,13 +32,20 @@ const options = [
   }
 ];
 
+const showAccordion = () => {
+  // empty url
+  if (window.location.pathname === "/"){
+    return <Accordion items={items} />;
+  }
+}
+
 const App = () => {
   // const [selected, setSelected] = useState(options[0]);
   // const [showDropdown, setShowDropdown] = useState(true);
 
   return (
     <div>
-      <Translate />
+      {showAccordion()}
     </div>
   );
 }
