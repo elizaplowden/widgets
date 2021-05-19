@@ -3,6 +3,20 @@ import axios from 'axios';
 
 const Convert = ({ language, text }) => {
   const [translated, setTranslated] = useState('');
+  // reducing number of API requests
+  const [debouncedText, setDebouncedText] = useState(text);
+
+  useEffect(() => {
+    const timerId = setTimeout(() => {
+      setDebouncedText(text);
+    }, 500);
+
+    // cancel timer
+    return () => {
+      // clearout function
+      clearTimeout(timerId);
+    };
+  }, [text]);
 
   useEffect(() => {
     const doTranslation = async () => {
