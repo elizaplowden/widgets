@@ -25,7 +25,8 @@ const Convert = ({ language, text }) => {
         {},
         {
           params: {
-            q: text,
+            // make sure it uses debouncedText
+            q: debouncedText,
             target: language.value,
             key: 'AIzaSyCHUCmpR7cT_yDFHC98CZJy2LTms-IwDlM'
           }
@@ -37,7 +38,7 @@ const Convert = ({ language, text }) => {
 
     // call the function
     doTranslation();
-  }, [language, text]);
+  }, [language, debouncedText]);
 
   return (
     <div>
