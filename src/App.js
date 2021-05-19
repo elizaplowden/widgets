@@ -45,6 +45,18 @@ const showList = () => {
   }
 }
 
+const showDropdown = () => {
+  if (window.location.pathname === "/dropdown"){
+    return <Dropdown />;
+  }
+}
+
+const showTranslate = () => {
+  if (window.location.pathname === "/translate"){
+    return <Translate />;
+  }
+}
+
 const App = () => {
   // const [selected, setSelected] = useState(options[0]);
   // const [showDropdown, setShowDropdown] = useState(true);
@@ -52,6 +64,9 @@ const App = () => {
   return (
     <div>
       {showAccordion()}
+      {showList()}
+      {showDropdown()}
+      {showTranslate()}
     </div>
   );
 }
