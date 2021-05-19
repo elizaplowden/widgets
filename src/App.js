@@ -39,6 +39,12 @@ const showAccordion = () => {
   }
 }
 
+const showList = () => {
+  if (window.location.pathname === "/list"){
+    return <Search />
+  }
+}
+
 const App = () => {
   // const [selected, setSelected] = useState(options[0]);
   // const [showDropdown, setShowDropdown] = useState(true);
