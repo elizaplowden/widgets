@@ -1,10 +1,12 @@
-import { useEffect } from 'react';
+import { useEffect, useState } from 'react';
 
 const Route = ({ path, children }) => {
+  // sets path names
+  const [currentPath, setCurrentPath] = useState(window.location.pathname);
   useEffect(() => {
     // define the callback as a separate function
     const onLocationChange = () => {
-      console.log('location Change');
+      setCurrentPath(window.location.pathname);
     };
 
     // add callback
@@ -16,7 +18,7 @@ const Route = ({ path, children }) => {
     };
   }, []);
 
-  return window.location.pathname === path ? children : null;
+  return currentPath === path ? children : null;
 };
 
 export default Route;
