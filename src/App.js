@@ -4,6 +4,7 @@ import Search from './components/Search';
 import Dropdown from './components/Dropdown';
 import Translate from './components/Translate';
 import Route from './components/Route';
+import Header from './components/Header';
 
 const items = [
   {
@@ -33,30 +34,31 @@ const options = [
   }
 ];
 
-const showAccordion = () => {
-  // empty url
-  if (window.location.pathname === "/"){
-    return <Accordion items={items} />;
-  }
-}
+// We don't need these now we have Route component!
+// const showAccordion = () => {
+//   // empty url
+//   if (window.location.pathname === "/"){
+//     return <Accordion items={items} />;
+//   }
+// }
 
-const showList = () => {
-  if (window.location.pathname === "/list"){
-    return <Search />
-  }
-}
+// const showList = () => {
+//   if (window.location.pathname === "/list"){
+//     return <Search />
+//   }
+// }
 
-const showDropdown = () => {
-  if (window.location.pathname === "/dropdown"){
-    return <Dropdown />;
-  }
-}
+// const showDropdown = () => {
+//   if (window.location.pathname === "/dropdown"){
+//     return <Dropdown />;
+//   }
+// }
 
-const showTranslate = () => {
-  if (window.location.pathname === "/translate"){
-    return <Translate />;
-  }
-}
+// const showTranslate = () => {
+//   if (window.location.pathname === "/translate"){
+//     return <Translate />;
+//   }
+// }
 
 const App = () => {
   // const [selected, setSelected] = useState(options[0]);
@@ -65,6 +67,7 @@ const App = () => {
 
   return (
     <div>
+      <Header />
       <Route path="/">
         <Accordion items={items} />
       </Route>
